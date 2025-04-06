@@ -33,6 +33,8 @@ You’ll learn how to:
    - `database_role`
 4. Click **Save**.
 5. It should now be visible along with the other attributes.
+![Okta_attribute](https://github.com/FilmonK/OKTA_Metabase_document/blob/main/readme_media/okta_attribute.png?raw=true)
+
 
 ---
 
@@ -58,6 +60,7 @@ You’ll learn how to:
 
 4. Click **Next**, then **Finish**.
 5. Confirm it's status by clicking on **Preview the SAML Assertion** button within the same screen.
+![saml](https://github.com/FilmonK/OKTA_Metabase_document/blob/main/readme_media/saml.png?raw=true)
 
 ---
 
@@ -67,6 +70,7 @@ You’ll learn how to:
 2. Go to **Admin Settings → People**.
 3. Click on the 3-dot button to edit the user.
 4. The attributes should be displayed.
+![User_metabase](https://github.com/FilmonK/OKTA_Metabase_document/blob/main/readme_media/user_metabase.png?raw=true)  
 
 These attributes can now be used within Metabase for sandboxing or impersonation depending on how you’ve configured those features.
 
