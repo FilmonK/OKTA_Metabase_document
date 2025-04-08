@@ -23,6 +23,30 @@ You’ll learn how to:
 
 ---
 
+### ✴️ Example Use Case
+
+- A user logs into Metabase via Okta.
+- Their Okta profile includes `region = "US-West"`.
+- The `region` attribute is passed into Metabase via SAML.
+- The attribute is used by sandboxing or impersonation (depending on how Metabase is configured).
+
+---
+
+### ✴️ What is Data Sandboxing in Metabase?
+
+In Metabase, **data sandboxing** allows admins to restrict what rows of data a user can see within a shared table, based on their group or identity. For example, you might allow users to query a full `orders` table but only return rows where `customer_id` matches their assigned ID. This is especially important in multi-tenant setups where users from different companies or teams share the same schema but must only access their own data.   
+
+[Learn more about Data Sandboxing →](https://www.metabase.com/learn/metabase-basics/administration/permissions/data-sandboxing-row-permissions)
+
+---
+
+### ✴️ What is Impersonation in Metabase?
+
+**Impersonation** in Metabase allows the application to pass the identity of the currently logged-in user—such as their email, group, or custom attributes—directly to the database when executing queries. This enables **dynamic row-level security** at the database level, rather than relying solely on Metabase’s internal permissions.  
+
+[Learn more about Impersonation →](https://www.metabase.com/learn/metabase-basics/administration/permissions/impersonation)
+
+---  
 
 ### ✴️ Step 1: Add Custom Attributes to Okta User Profiles
 
@@ -33,9 +57,8 @@ You’ll learn how to:
    - `department`
    - `database_role`
 4. Click **Save**.
-5. It should now be visible along with the other attributes.
+5. The attribute should now appear along with the other user fields.
 <img src="https://github.com/FilmonK/OKTA_Metabase_document/blob/main/readme_media/okta_attribute.png?raw=true" width="600" alt="Okta Attribute" />
-
 
 ---
 
@@ -46,7 +69,6 @@ You’ll learn how to:
    (e.g. `database_role` → `sales`)
 
 ---
-
 
 ### ✴️ Step 3: Add SAML Attribute Statements in Okta
 
@@ -61,9 +83,8 @@ You’ll learn how to:
 | `database_role`| Unspecified | `user.database_role`|
 
 4. Click **Next**, then **Finish**.
-5. Confirm it's status by clicking on **Preview the SAML Assertion** button within the same screen.
+5. Confirm it's working by clicking on **Preview the SAML Assertion** in the same screen.
 <img src="https://github.com/FilmonK/OKTA_Metabase_document/blob/main/readme_media/saml.png?raw=true" width="600" alt="SAML Settings" />
-
 
 ---
 
@@ -77,14 +98,6 @@ You’ll learn how to:
 
 These attributes can now be used within Metabase for sandboxing or impersonation depending on how you’ve configured those features.
 
----
-
-### ✴️ Example Use Case
-
-- A user logs into Metabase via Okta.
-- Their Okta profile includes `region = "US-West"`.
-- The `region` attribute is passed into Metabase via SAML.
-- The attribute is used by sandboxing or impersonation (depending on how Metabase is configured).
 
 ---
 
